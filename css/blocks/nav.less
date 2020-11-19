@@ -2,22 +2,53 @@
 
 .nav {
   display: flex;
+  align-items: center;
   height: 100%;
 }
 
 .nav__link {
-  padding: 10px 30px; /*top bottom, left right*/
+  margin-left: 2rem;
   font-size: 0.93rem;
   color: @black;
+
+  position: relative;
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 700;
 
-  border: 2px solid transparent;
-  border-radius: 20px;
+  &:after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: @black;
 
-  &:hover,
-  &.active {
-    border-color: @black;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    z-index: 1;
+
+    transition: width 0.2s linear;
+  }
+
+  &:hover:not(.nav__link--btn) {
+    &:after {
+      width: 100%;
+    }
+  }
+
+  /* Modificators */
+
+  &--btn {
+    padding: 0.66rem 2rem;
+    border: 2px solid @black;
+    border-radius: 20px;
+
+    transition: background-color 0.2s linear;
+    transition: color 0.2s linear;
+
+    &:hover {
+      background-color: @black;
+      color: @white;
+    }
   }
 }
