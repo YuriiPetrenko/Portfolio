@@ -24,6 +24,10 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
   color: @black;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
 *,
@@ -48,6 +52,10 @@ body {
 @import "blocks/news.less";
 @import "blocks/articles.less";
 @import "blocks/footer.less";
+@import "blocks/modal.less";
+@import "blocks/modal-work.less";
+@import "blocks/timeline.less";
+@import "blocks/progress-bar.less";
 
 /* Helpers */
 @import "blocks/helpers.less";
