@@ -1,5 +1,7 @@
 $(function(){
 
+         const workSlider = $('[data-slider="slick"]');
+
          /* Filter */
          let filter = $("[data-filter]");
 
@@ -44,6 +46,8 @@ $(function(){
                                     transform: "rotateX(0)"
                            });
                   }, 200);
+
+                  workSlider.slick('set-position');
          });
 
          modalClose.on("click", function(event){
@@ -81,4 +85,31 @@ $(function(){
                   event.stopPropagation();
          });
 
+         /* Slider */
+
+         workSlider.slick({
+                  infinite: true,
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                  fade: true,
+                  arrows: false,
+                  dots: true
+         });
+
+         $(".slickPrev").on("click", function(event){
+                  event.preventDefault();
+
+                  let currentSlider = $(this).parents('.modal').find('[data-slider="slick"]')
+
+                  currentSlider.slick("slickPrev");
+         });
+
+
+         $(".slickNext").on("click", function(event){
+                  event.preventDefault();
+
+                  let currentSlider = $(this).parents('.modal').find('[data-slider="slick"]')
+
+                  currentSlider.slick("slickNext");
+         });
 });
